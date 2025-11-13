@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>Casting</h2>
+
+<form method="POST" class="mb-4">
+  <select name="prod_id" class="form-control mb-2">
+    {% for p in productions %}
+      <option value="{{p.prod_id}}">{{p.title}}</option>
+    {% endfor %}
+  </select>
+
+  <input name="actor_name" class="form-control mb-2" placeholder="Actor Name">
+  <input name="character_name" class="form-control mb-2" placeholder="Character Name">
+  <button class="btn btn-primary">Add</button>
+</form>
+
+<table class="table table-bordered">
+  <tr><th>ID</th><th>Production</th><th>Actor</th><th>Character</th></tr>
+  {% for c in casting %}
+  <tr>
+    <td>{{c.cast_id}}</td>
+    <td>{{c.production.title}}</td>
+    <td>{{c.actor_name}}</td>
+    <td>{{c.character_name}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>Awards</h2>
+
+<form method="POST" class="mb-4">
+  <select name="prod_id" class="form-control mb-2">
+    {% for p in productions %}
+      <option value="{{p.prod_id}}">{{p.title}}</option>
+    {% endfor %}
+  </select>
+
+  <input name="name" class="form-control mb-2" placeholder="Award Name">
+  <input name="category" class="form-control mb-2" placeholder="Category">
+  <input name="year" class="form-control mb-2" placeholder="Year">
+  <button class="btn btn-primary">Add</button>
+</form>
+
+<table class="table table-bordered">
+  <tr><th>ID</th><th>Production</th><th>Name</th><th>Category</th><th>Year</th></tr>
+  {% for a in awards %}
+  <tr>
+    <td>{{a.award_id}}</td>
+    <td>{{a.production.title}}</td>
+    <td>{{a.name}}</td>
+    <td>{{a.category}}</td>
+    <td>{{a.year}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>Budget</h2>
+
+<form method="POST" class="mb-4">
+  <select name="prod_id" class="form-control mb-2">
+    {% for p in productions %}
+      <option value="{{p.prod_id}}">{{p.title}}</option>
+    {% endfor %}
+  </select>
+
+  <input name="estimated_cost" class="form-control mb-2" placeholder="Estimated Cost">
+  <input name="actual_cost" class="form-control mb-2" placeholder="Actual Cost">
+  <button class="btn btn-primary">Add</button>
+</form>
+
+<table class="table table-bordered">
+  <tr><th>ID</th><th>Production</th><th>Estimated</th><th>Actual</th></tr>
+  {% for b in budget %}
+  <tr>
+    <td>{{b.budget_id}}</td>
+    <td>{{b.production.title}}</td>
+    <td>{{b.estimated_cost}}</td>
+    <td>{{b.actual_cost}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

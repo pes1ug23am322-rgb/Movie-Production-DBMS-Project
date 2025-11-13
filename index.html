@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2 class="mb-4">Dashboard</h2>
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="card p-3">
+      <h4>Total Productions</h4>
+      <p class="fs-3">{{ stats.productions }}</p>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card p-3">
+      <h4>Total Users</h4>
+      <p class="fs-3">{{ stats.users }}</p>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card p-3">
+      <h4>Total Reviews</h4>
+      <p class="fs-3">{{ stats.reviews }}</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

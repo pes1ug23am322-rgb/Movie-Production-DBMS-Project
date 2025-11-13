@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>Crew</h2>
+
+<form method="POST" class="mb-4">
+  <select name="prod_id" class="form-control mb-2">
+    {% for p in productions %}
+      <option value="{{p.prod_id}}">{{p.title}}</option>
+    {% endfor %}
+  </select>
+
+  <input name="name" class="form-control mb-2" placeholder="Crew Name">
+  <input name="role" class="form-control mb-2" placeholder="Role">
+  <button class="btn btn-primary">Add</button>
+</form>
+
+<table class="table table-bordered">
+  <tr><th>ID</th><th>Production</th><th>Name</th><th>Role</th></tr>
+  {% for c in crew %}
+  <tr>
+    <td>{{c.crew_id}}</td>
+    <td>{{c.production.title}}</td>
+    <td>{{c.name}}</td>
+    <td>{{c.role}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

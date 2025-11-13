@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>Reports</h2>
+
+<h4>Average Ratings per Movie</h4>
+<table class="table table-bordered mb-4">
+  <tr><th>Title</th><th>Avg Rating</th></tr>
+  {% for m, r in top_movies %}
+  <tr>
+    <td>{{m}}</td>
+    <td>{{r}}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<h4>Budget Variance</h4>
+<table class="table table-bordered">
+  <tr><th>Title</th><th>Estimated</th><th>Actual</th><th>Variance</th></tr>
+  {% for row in budget_variance %}
+  <tr>
+    <td>{{row.title}}</td>
+    <td>{{row.estimated_cost}}</td>
+    <td>{{row.actual_cost}}</td>
+    <td>{{row.variance}}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}

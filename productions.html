@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>Productions</h2>
+
+<form method="POST" class="mb-4">
+  <div class="row g-2">
+    <div class="col"><input name="title" class="form-control" placeholder="Title" required></div>
+    <div class="col"><input name="genre" class="form-control" placeholder="Genre"></div>
+    <div class="col"><input name="language" class="form-control" placeholder="Language"></div>
+    <div class="col"><input name="director" class="form-control" placeholder="Director"></div>
+    <div class="col"><button class="btn btn-primary">Add</button></div>
+  </div>
+</form>
+
+<table class="table table-bordered">
+  <tr><th>ID</th><th>Title</th><th>Genre</th><th>Language</th><th>Director</th></tr>
+  {% for p in productions %}
+  <tr>
+    <td>{{p.prod_id}}</td>
+    <td>{{p.title}}</td>
+    <td>{{p.genre}}</td>
+    <td>{{p.language}}</td>
+    <td>{{p.director}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

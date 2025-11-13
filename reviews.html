@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>Reviews</h2>
+
+<form method="POST" class="mb-4">
+
+  <select name="prod_id" class="form-control mb-2">
+    {% for p in productions %}
+      <option value="{{p.prod_id}}">{{p.title}}</option>
+    {% endfor %}
+  </select>
+
+  <select name="user_id" class="form-control mb-2">
+    {% for u in users %}
+      <option value="{{u.user_id}}">{{u.name}}</option>
+    {% endfor %}
+  </select>
+
+  <input name="rating" class="form-control mb-2" placeholder="Rating (1-10)">
+  <textarea name="comment" class="form-control mb-2" placeholder="Comment"></textarea>
+
+  <button class="btn btn-primary">Add</button>
+</form>
+
+<table class="table table-bordered">
+  <tr><th>ID</th><th>Production</th><th>User</th><th>Rating</th><th>Comment</th></tr>
+  {% for r in reviews %}
+  <tr>
+    <td>{{r.review_id}}</td>
+    <td>{{r.production.title}}</td>
+    <td>{{r.user.name}}</td>
+    <td>{{r.rating}}</td>
+    <td>{{r.comment}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
